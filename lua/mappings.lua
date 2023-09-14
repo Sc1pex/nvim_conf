@@ -15,12 +15,11 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<c-p>', require('telescope.builtin').find_files, { desc = 'Search files' })
+vim.keymap.set('n', '<c-g>', require('telescope.builtin').git_files, { desc = 'Search files' })
+vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = 'Find current word' })
+vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Find Grep' })
+vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Find Diagnostics' })
 
 vim.keymap.set('n', '<leader>e', "<cmd>Neotree toggle<cr>")
 
@@ -34,3 +33,8 @@ vim.keymap.set('n', 'L', '<cmd>BufferLineCycleNext<cr>')
 vim.keymap.set('n', 'H', '<cmd>BufferLineCyclePrev<cr>')
 vim.keymap.set('n', '<leader>c', ':bd<cr>')
 
+-- Session manager
+vim.keymap.set('n', '<leader>ss', ':SessionManager save_current_session<cr>')
+vim.keymap.set('n', '<leader>sl', ':SessionManager load_session<cr>')
+vim.keymap.set('n', '<leader>sL', ':SessionManager load_last_session<cr>')
+vim.keymap.set('n', '<leader>sd', ':SessionManager delete_session<cr>')

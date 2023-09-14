@@ -29,4 +29,14 @@ return {
 
   -- TODO: change mapping
   { 'numToStr/Comment.nvim', opts = {} },
+
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
+
+  {
+    'Shatur/neovim-session-manager'
+  }
 }

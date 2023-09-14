@@ -23,6 +23,8 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
+  nmap('<F2>', vim.lsp.buf.rename)
+
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -89,3 +91,14 @@ mason_lspconfig.setup_handlers {
     }
   end
 }
+
+require("mason-null-ls").setup({
+  ensure_installed = {
+  },
+  automatic_installation = false,
+  handlers = {},
+})
+require("null-ls").setup({
+  sources = {
+  }
+})

@@ -48,7 +48,17 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
-      auto_refresh = true
+      panel = {
+        auto_refresh = true
+      },
+      suggestion = {
+        auto_trigger = true,
+        keymap = {
+          accept = "<c-b>",
+          -- dismiss = "<Esc>",
+        }
+      }
     }
-  }
+  },
+  { 'roobert/tailwindcss-colorizer-cmp.nvim' }
 }

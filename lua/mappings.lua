@@ -1,7 +1,7 @@
 vim.keymap.set('n', '\\', '<cmd>vsplit<cr>')
 vim.keymap.set('n', '|', '<cmd>split<cr>')
 
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set('v', '<leader>y', '"+y')
 
 vim.keymap.set('n', '<leader>w', ':w<cr>')
 

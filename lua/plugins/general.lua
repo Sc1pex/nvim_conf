@@ -28,7 +28,10 @@ return {
   },
 
   -- TODO: change mapping
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    opts = {}
+  },
 
   {
     'windwp/nvim-autopairs',
@@ -36,7 +39,6 @@ return {
     opts = {} -- this is equalent to setup({}) function
   },
 
-  {
-    'Shatur/neovim-session-manager'
-  }
+  { 'Shatur/neovim-session-manager', },
+  { "windwp/nvim-ts-autotag" }
 }

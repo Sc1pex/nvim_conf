@@ -4,6 +4,15 @@ require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
 local lspkind = require('lspkind')
+local lspkind_formatter = lspkind.cmp_format({
+  mode = 'symbol',
+  maxwidth = 50,
+  ellipsis_char = '...',
+  before = function(_, vim_item)
+    return vim_item
+  end
+})
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -44,16 +53,9 @@ cmp.setup {
     { name = 'luasnip' },
   },
   formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol',       -- show only symbol annotations
-      maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-
-      -- The function below will be called before any actual modifications from lspkind
-      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function(_entry, vim_item)
-        return vim_item
-      end
-    })
+    format = function(entry, item)
+      lspkind_formatter(entry, item)
+      return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+    end
   }
 }

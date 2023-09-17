@@ -13,8 +13,6 @@ vim.o.smartcase = true
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
--- Maybe remove this?
-vim.o.clipboard = 'unnamedplus'
-
 vim.wo.signcolumn = 'yes'
 vim.wo.relativenumber = true
+vim.wo.number = true

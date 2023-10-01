@@ -8,7 +8,7 @@ local on_attach = function(_, bufnr)
   nmap('gd', vim.lsp.buf.definition)
   nmap('gr', require('telescope.builtin').lsp_references)
   nmap('gI', vim.lsp.buf.implementation)
-  nmap('<leader>D', vim.lsp.buf.type_definition)
+  nmap('gD', vim.lsp.buf.type_definition)
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols)
 
   nmap('<F2>', vim.lsp.buf.rename)
@@ -20,6 +20,9 @@ local on_attach = function(_, bufnr)
   nmap('gD', vim.lsp.buf.declaration)
 end
 
+local tailwindfiles = require('lspconfig').tailwindcss.document_config.default_config.filetypes
+table.insert(tailwindfiles, "rust")
+
 local servers = {
   lua_ls = {
     Lua = {
@@ -27,6 +30,9 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  tailwindcss = {
+    filetypes = tailwindfiles
+  }
 }
 
 require('neodev').setup()

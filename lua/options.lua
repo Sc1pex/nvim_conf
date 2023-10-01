@@ -1,5 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.no_ocaml_maps = 1 -- Who tougth adding keymaps like <leader>c to ftplugin was a good idea?
 
 vim.o.hlsearch = false
 vim.o.wrap = false

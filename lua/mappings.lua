@@ -2,7 +2,6 @@ vim.keymap.set('n', '\\', '<cmd>vsplit<cr>')
 vim.keymap.set('n', '|', '<cmd>split<cr>')
 
 vim.keymap.set('v', '<leader>y', '"+y')
-
 vim.keymap.set('n', '<leader>w', ':w<cr>')
 
 -- Telescope
@@ -38,3 +37,9 @@ vim.keymap.set('n', '<leader>ss', ':SessionManager save_current_session<cr>')
 vim.keymap.set('n', '<leader>sl', ':SessionManager load_session<cr>')
 vim.keymap.set('n', '<leader>sL', ':SessionManager load_last_session<cr>')
 vim.keymap.set('n', '<leader>sd', ':SessionManager delete_session<cr>')
+
+-- Cpp runner
+vim.keymap.set('n', '<leader>pf', require('cpp-runner').fstream_proj)
+vim.keymap.set('n', '<leader>pi', require('cpp-runner').istream_proj)
+vim.keymap.set('n', '<leader>pc', require('cpp-runner').close_proj)
+vim.keymap.set('n', '<leader>po', require('cpp-runner').open_proj)

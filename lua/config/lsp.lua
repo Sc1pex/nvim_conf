@@ -32,7 +32,7 @@ local servers = {
   },
   tailwindcss = {
     filetypes = tailwindfiles
-  }
+  },
 }
 
 require('neodev').setup()
@@ -42,7 +42,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local mason_lspconfig = require 'mason-lspconfig'
 mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
+  -- ensure_installed = vim.tbl_keys(servers),
 }
 
 mason_lspconfig.setup_handlers {
@@ -65,4 +65,20 @@ require("mason-null-ls").setup({
 require("null-ls").setup({
   sources = {
   }
+})
+
+require("rust-tools").setup({
+  server = {
+    on_attach = on_attach,
+  }
+})
+
+require('lspconfig').ocamllsp.setup({
+  on_attach = on_attach
+})
+require('lspconfig').hls.setup({
+  on_attach = on_attach
+})
+require('lspconfig').rust_analyzer.setup({
+  on_attach = on_attach
 })

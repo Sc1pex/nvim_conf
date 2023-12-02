@@ -1,4 +1,4 @@
-require("bufferline").setup{
+require("bufferline").setup {
   options = {
     offsets = {
       {
@@ -7,8 +7,8 @@ require("bufferline").setup{
         highlight = "Directory",
         text_align = "left"
       }
-    }
+    },
+    numbers = function(opts) return string.format('%s', opts.raise(opts.ordinal)) end,
   },
   highlights = {}
 }
-

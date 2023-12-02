@@ -65,5 +65,7 @@ return {
       }
     }
   },
-  { 'roobert/tailwindcss-colorizer-cmp.nvim' }
+  { 'roobert/tailwindcss-colorizer-cmp.nvim' },
+
+  { 'simrat39/rust-tools.nvim' }
 }

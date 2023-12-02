@@ -30,6 +30,16 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Buffer navigation
 vim.keymap.set('n', 'L', '<cmd>BufferLineCycleNext<cr>')
 vim.keymap.set('n', 'H', '<cmd>BufferLineCyclePrev<cr>')
+vim.keymap.set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<cr>')
+vim.keymap.set('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<cr>')
+vim.keymap.set('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<cr>')
+vim.keymap.set('n', '<leader>4', '<cmd>BufferLineGoToBuffer 4<cr>')
+vim.keymap.set('n', '<leader>5', '<cmd>BufferLineGoToBuffer 5<cr>')
+vim.keymap.set('n', '<leader>6', '<cmd>BufferLineGoToBuffer 6<cr>')
+vim.keymap.set('n', '<leader>7', '<cmd>BufferLineGoToBuffer 7<cr>')
+vim.keymap.set('n', '<leader>8', '<cmd>BufferLineGoToBuffer 8<cr>')
+vim.keymap.set('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<cr>')
+vim.keymap.set('n', '<leader>C', '<cmd>BufferLineCloseOthers<cr>')
 vim.keymap.set('n', '<leader>c', ':bd<cr>')
 
 -- Session manager
@@ -45,3 +55,7 @@ vim.keymap.set('n', '<leader>pc', require('cpp-runner').close_proj)
 vim.keymap.set('n', '<leader>po', require('cpp-runner').open_proj)
 vim.keymap.set('n', '<leader>pr', require('cpp-runner').run_proj)
 vim.keymap.set('n', '<leader>pl', require('cpp-runner').clear)
+
+-- Copilot
+vim.keymap.set('n', '<leader>ge', require('copilot.command').enable)
+vim.keymap.set('n', '<leader>gd', require('copilot.command').disable)

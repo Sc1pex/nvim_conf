@@ -79,6 +79,9 @@ require('lspconfig').ocamllsp.setup({
 require('lspconfig').hls.setup({
   on_attach = on_attach
 })
-require('lspconfig').rust_analyzer.setup({
+-- require('lspconfig').rust_analyzer.setup({
+--   on_attach = on_attach
+-- })
+require('lspconfig').sourcekit.setup({
   on_attach = on_attach
 })

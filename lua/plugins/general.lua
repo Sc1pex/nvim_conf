@@ -13,8 +13,11 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
     opts = {
-      show_trailing_blankline_indent = false,
+      scope = {
+        enabled = false
+      }
     },
   },
 
@@ -40,5 +43,7 @@ return {
   },
 
   { 'Shatur/neovim-session-manager', },
-  { "windwp/nvim-ts-autotag" }
+  { "windwp/nvim-ts-autotag" },
+
+  { 'mbbill/undotree' }
 }

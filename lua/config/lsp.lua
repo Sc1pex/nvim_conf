@@ -9,7 +9,7 @@ local on_attach = function(_, bufnr)
   nmap('gr', require('telescope.builtin').lsp_references)
   nmap('gI', vim.lsp.buf.implementation)
   nmap('gD', vim.lsp.buf.type_definition)
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols)
+  nmap('<leader>ds', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
   nmap('<F2>', vim.lsp.buf.rename)
 
@@ -42,7 +42,10 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local mason_lspconfig = require 'mason-lspconfig'
 mason_lspconfig.setup {
-  -- ensure_installed = vim.tbl_keys(servers),
+  ensure_installed = {
+    'html',
+    'htmx',
+  }
 }
 
 mason_lspconfig.setup_handlers {
@@ -73,15 +76,28 @@ require("rust-tools").setup({
   }
 })
 
-require('lspconfig').ocamllsp.setup({
+local lspconfig = require('lspconfig')
+
+lspconfig.ocamllsp.setup({
   on_attach = on_attach
 })
-require('lspconfig').hls.setup({
+lspconfig.hls.setup({
   on_attach = on_attach
 })
--- require('lspconfig').rust_analyzer.setup({
---   on_attach = on_attach
--- })
-require('lspconfig').sourcekit.setup({
+lspconfig.sourcekit.setup({
   on_attach = on_attach
+})
+
+-- Templ
+vim.filetype.add({ extension = { templ = "templ" } })
+
+lspconfig.html.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "templ" },
+})
+lspconfig.htmx.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "templ" },
 })

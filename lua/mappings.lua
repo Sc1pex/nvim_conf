@@ -59,3 +59,6 @@ vim.keymap.set('n', '<leader>pl', require('cpp-runner').clear)
 -- Copilot
 vim.keymap.set('n', '<leader>ge', require('copilot.command').enable)
 vim.keymap.set('n', '<leader>gd', require('copilot.command').disable)
+
+-- Undo tree
+vim.keymap.set('n', '<leader>u', ':UndotreeToggle<cr>')

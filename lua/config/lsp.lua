@@ -88,7 +88,6 @@ lspconfig.sourcekit.setup({
   on_attach = on_attach
 })
 
--- Templ
 vim.filetype.add({ extension = { templ = "templ" } })
 
 lspconfig.html.setup({
@@ -99,5 +98,5 @@ lspconfig.html.setup({
 lspconfig.htmx.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "html", "templ" },
+  filetypes = { "html", "templ", "rust" },
 })

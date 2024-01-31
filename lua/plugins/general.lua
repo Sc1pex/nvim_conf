@@ -45,5 +45,12 @@ return {
   { 'Shatur/neovim-session-manager', },
   { "windwp/nvim-ts-autotag" },
 
-  { 'mbbill/undotree' }
+  { 'mbbill/undotree' },
+
+  {
+    'ThePrimeagen/harpoon',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+  }
 }

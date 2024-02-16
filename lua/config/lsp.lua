@@ -21,7 +21,7 @@ local on_attach = function(_, bufnr)
 end
 
 local tailwindfiles = require('lspconfig').tailwindcss.document_config.default_config.filetypes
-table.insert(tailwindfiles, "rust")
+table.insert(tailwindfiles, 'rust')
 
 local servers = {
   lua_ls = {
@@ -31,7 +31,7 @@ local servers = {
     },
   },
   tailwindcss = {
-    filetypes = tailwindfiles
+    filetypes = tailwindfiles,
   },
 }
 
@@ -45,7 +45,7 @@ mason_lspconfig.setup {
   ensure_installed = {
     'html',
     'htmx',
-  }
+  },
 }
 
 mason_lspconfig.setup_handlers {
@@ -56,47 +56,39 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
 }
 
-require("mason-null-ls").setup({
-  ensure_installed = {
-  },
+require('mason-null-ls').setup {
+  ensure_installed = {},
   automatic_installation = false,
   handlers = {},
-})
-require("null-ls").setup({
-  sources = {
-  }
-})
+}
+require('null-ls').setup {
+  sources = {},
+}
 
-require("rust-tools").setup({
-  server = {
-    on_attach = on_attach,
-  }
-})
+local lspconfig = require 'lspconfig'
 
-local lspconfig = require('lspconfig')
+lspconfig.ocamllsp.setup {
+  on_attach = on_attach,
+}
+lspconfig.hls.setup {
+  on_attach = on_attach,
+}
+lspconfig.sourcekit.setup {
+  on_attach = on_attach,
+}
 
-lspconfig.ocamllsp.setup({
-  on_attach = on_attach
-})
-lspconfig.hls.setup({
-  on_attach = on_attach
-})
-lspconfig.sourcekit.setup({
-  on_attach = on_attach
-})
+vim.filetype.add { extension = { templ = 'templ' } }
 
-vim.filetype.add({ extension = { templ = "templ" } })
-
-lspconfig.html.setup({
+lspconfig.html.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "html", "templ" },
-})
-lspconfig.htmx.setup({
+  filetypes = { 'html', 'templ' },
+}
+lspconfig.htmx.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "html", "templ", "rust" },
-})
+  filetypes = { 'html', 'templ', 'rust' },
+}

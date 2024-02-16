@@ -9,7 +9,7 @@ return {
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -29,7 +29,7 @@ return {
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
 
-      'hrsh7th/cmp-path'
+      'hrsh7th/cmp-path',
     },
   },
 
@@ -37,35 +37,39 @@ return {
 
   { 'jose-elias-alvarez/null-ls.nvim' },
   {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    'jay-babu/mason-null-ls.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
+      'williamboman/mason.nvim',
+      'jose-elias-alvarez/null-ls.nvim',
     },
   },
 
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
     opts = {
       panel = {
-        auto_refresh = true
+        auto_refresh = true,
       },
       suggestion = {
         auto_trigger = true,
         keymap = {
-          accept = "<c-b>",
+          accept = '<c-b>',
           -- dismiss = "<Esc>",
-        }
+        },
       },
       filetypes = {
-        cpp = false
-      }
-    }
+        cpp = false,
+      },
+    },
   },
   { 'roobert/tailwindcss-colorizer-cmp.nvim' },
 
-  { 'simrat39/rust-tools.nvim' }
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4',
+    ft = { 'rust' },
+  },
 }

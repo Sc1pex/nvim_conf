@@ -14,7 +14,6 @@ local on_attach = function(_, bufnr)
   nmap('<F2>', vim.lsp.buf.rename)
 
   nmap('K', vim.lsp.buf.hover)
-  nmap('<C-k>', vim.lsp.buf.signature_help)
   nmap('<leader>d', vim.diagnostic.open_float)
 
   nmap('gD', vim.lsp.buf.declaration)

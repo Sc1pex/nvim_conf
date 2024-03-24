@@ -4,20 +4,28 @@ return {
 
   {
     'catppuccin/nvim',
-    name = "catppuccin",
+    name = 'catppuccin',
     priority = 1000,
     config = function()
+      require('catppuccin').setup {
+        custom_highlights = function(colors)
+          return {
+            ['@variable.rust'] = { fg = colors.maroon },
+          }
+        end,
+      }
+
       vim.cmd.colorscheme 'catppuccin'
     end,
   },
 
   {
     'lukas-reineke/indent-blankline.nvim',
-    main = "ibl",
+    main = 'ibl',
     opts = {
       scope = {
-        enabled = false
-      }
+        enabled = false,
+      },
     },
   },
 
@@ -33,17 +41,17 @@ return {
   -- TODO: change mapping
   {
     'numToStr/Comment.nvim',
-    opts = {}
+    opts = {},
   },
 
   {
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    opts = {} -- this is equalent to setup({}) function
+    event = 'InsertEnter',
+    opts = {}, -- this is equalent to setup({}) function
   },
 
-  { 'Shatur/neovim-session-manager', },
-  { "windwp/nvim-ts-autotag" },
+  { 'Shatur/neovim-session-manager' },
+  { 'windwp/nvim-ts-autotag' },
 
   { 'mbbill/undotree' },
 
@@ -52,5 +60,5 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
-  }
+  },
 }

@@ -9,7 +9,7 @@ local on_attach = function(_, bufnr)
   nmap('gr', require('telescope.builtin').lsp_references)
   nmap('gI', vim.lsp.buf.implementation)
   nmap('gD', vim.lsp.buf.type_definition)
-  nmap('<leader>ds', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+  nmap('<leader>gq', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
   nmap('<F2>', vim.lsp.buf.rename)
 
@@ -18,6 +18,16 @@ local on_attach = function(_, bufnr)
 
   nmap('gD', vim.lsp.buf.declaration)
 end
+
+vim.g.rustaceanvim = {
+  tools = {
+    enable_clippy = false,
+  },
+
+  server = {
+    on_attach = on_attach,
+  },
+}
 
 local tailwindfiles = require('lspconfig').tailwindcss.document_config.default_config.filetypes
 table.insert(tailwindfiles, 'rust')
@@ -76,6 +86,19 @@ lspconfig.hls.setup {
   on_attach = on_attach,
 }
 lspconfig.sourcekit.setup {
+  on_attach = on_attach,
+}
+lspconfig.zls.setup {
+  on_attach = on_attach,
+  settings = {
+    zls = {
+      enable_autofix = false,
+      warn_style = true,
+      enable_build_on_save = true,
+    },
+  },
+}
+lspconfig.gleam.setup {
   on_attach = on_attach,
 }
 

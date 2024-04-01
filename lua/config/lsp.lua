@@ -51,10 +51,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local mason_lspconfig = require 'mason-lspconfig'
 mason_lspconfig.setup {
-  ensure_installed = {
-    'html',
-    'htmx',
-  },
+  ensure_installed = {},
 }
 
 mason_lspconfig.setup_handlers {
@@ -105,12 +102,13 @@ lspconfig.gleam.setup {
 vim.filetype.add { extension = { templ = 'templ' } }
 
 lspconfig.html.setup {
-  on_attach = on_attach,
+  on_attach = function(client)
+    if vim.bo.filetype == 'templ' then
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+    end
+    on_attach()
+  end,
   capabilities = capabilities,
   filetypes = { 'html', 'templ' },
-}
-lspconfig.htmx.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { 'html', 'templ', 'rust' },
 }

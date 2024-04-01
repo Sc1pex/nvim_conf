@@ -1,9 +1,14 @@
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+
+luasnip.config.setup {
+  enable_autosnippets = true,
+  store_selection_keys = "<Tab>",
+}
 require('luasnip.loaders.from_vscode').lazy_load({
   paths = { './snippets' },
 })
-luasnip.config.setup {}
+require("luasnip.loaders.from_lua").load({ paths = { "./snippets" } })
 
 local lspkind = require('lspkind')
 local lspkind_formatter = lspkind.cmp_format({

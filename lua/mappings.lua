@@ -64,3 +64,6 @@ vim.keymap.set('n', '<leader>gd', require('copilot.command').disable)
 
 -- Undo tree
 vim.keymap.set('n', '<leader>u', ':UndotreeToggle<cr>')
+
+-- Latex
+vim.keymap.set('n', '<leader>lp', ':call SVED_Sync()<CR>')

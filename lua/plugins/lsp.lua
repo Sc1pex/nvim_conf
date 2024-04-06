@@ -9,7 +9,7 @@ return {
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -45,26 +45,6 @@ return {
     },
   },
 
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    opts = {
-      panel = {
-        auto_refresh = true,
-      },
-      suggestion = {
-        auto_trigger = true,
-        keymap = {
-          accept = '<c-b>',
-          -- dismiss = "<Esc>",
-        },
-      },
-      filetypes = {
-        cpp = false,
-      },
-    },
-  },
   { 'roobert/tailwindcss-colorizer-cmp.nvim' },
 
   {
@@ -72,7 +52,7 @@ return {
     version = '^4',
     ft = { 'rust' },
   },
-  
+
   {
     "lervag/vimtex",
     init = function()

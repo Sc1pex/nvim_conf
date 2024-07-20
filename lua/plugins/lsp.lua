@@ -48,12 +48,6 @@ return {
   { 'roobert/tailwindcss-colorizer-cmp.nvim' },
 
   {
-    'mrcjkb/rustaceanvim',
-    version = '^4',
-    ft = { 'rust' },
-  },
-
-  {
     "lervag/vimtex",
     init = function()
       vim.g.vimtex_view_general_viewer = 'evince'
@@ -64,5 +58,32 @@ return {
   },
   {
     "peterbjorgensen/sved",
-  }
+  },
+
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    opts = {
+      panel = {
+        enable = true,
+        auto_refresh = true,
+      },
+      suggestion = {
+        auto_trigger = true,
+        keymap = {
+          accept = '<c-b>',
+        },
+      },
+      filetypes = {
+        javascript = true,
+        typescript = true,
+        javascriptreact = true,
+        typescriptreact = true,
+        ["*"] = false,
+      }
+    },
+  },
+
+  { "folke/neoconf.nvim" }
 }

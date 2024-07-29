@@ -85,5 +85,7 @@ return {
     },
   },
 
-  { "folke/neoconf.nvim" }
+  { "folke/neoconf.nvim" },
+
+  { 'Civitasv/cmake-tools.nvim' }
 }

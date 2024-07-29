@@ -105,3 +105,5 @@ lspconfig.html.setup {
     capabilities = capabilities,
     filetypes = { 'html', 'templ' },
 }
+
+require("cmake-tools").setup({})

@@ -51,3 +51,6 @@ vim.keymap.set('n', '<leader>sd', ':SessionManager delete_session<cr>')
 
 -- Undo tree
 vim.keymap.set('n', '<leader>u', ':UndotreeToggle<cr>')
+
+-- Neogit
+vim.keymap.set('n', '<leader>gg', require('neogit').open)

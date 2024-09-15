@@ -23,6 +23,7 @@ require("neoconf").setup({})
 
 local tailwindfiles = require('lspconfig').tailwindcss.document_config.default_config.filetypes
 table.insert(tailwindfiles, 'rust')
+table.insert(tailwindfiles, 'svelte')
 
 local servers = {
     lua_ls = {
